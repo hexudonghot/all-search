@@ -26,11 +26,7 @@ public class EsController {
                 "  \"num\" : 800,\n" +
                 "  \"date\" : \"2019-07-28\"\n" +
                 "}";
-
         IndexResponse response = service.addDoc("idx_clouthing", source);
-
-        httpServletResponse.getWriter().println();
-
         return response.toString();
     }
 }

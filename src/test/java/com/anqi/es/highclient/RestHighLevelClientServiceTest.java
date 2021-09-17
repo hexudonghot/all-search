@@ -68,7 +68,7 @@ public class RestHighLevelClientServiceTest {
                         "     }\n" +
                         "  }\n" +
                         "}";
-        CreateIndexResponse response = service.createIndex("idx_cloth", settings, mappings);
+        CreateIndexResponse response = service.createIndex("idx_clouthing", settings, mappings);
         if (response.isAcknowledged()) {
             System.out.println("创建成功");
         }
@@ -99,14 +99,14 @@ public class RestHighLevelClientServiceTest {
 
     @Test
     public void search() throws IOException{
-        SearchResponse response = service.search("name", "毛衣", 0, 30, "idx_cloth");
+        SearchResponse response = service.search("name", "毛衣", 0, 30, "idx_clouthing");
         Arrays.asList(response.getHits().getHits())
                 .forEach(e -> System.out.println(e.getSourceAsString()));
     }
 
     @Test
     public void termSearch() throws IOException{
-        SearchResponse response = service.termSearch("name", "nike潮流毛衣", 0, 50);
+        SearchResponse response = service.termSearch("name", "袖", 0, 50);
         SearchHits hits = response.getHits();
         for (SearchHit hit : hits) {
             System.out.println(hit.getSourceAsString());
